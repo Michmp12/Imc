@@ -1,0 +1,54 @@
+def calcular_imc(peso, altura):
+    """
+    Calcula el Índice de Masa Corporal (IMC) dado el peso en kilogramos y la altura en metros.
+    """
+    return peso / (altura ** 2)
+
+def determinar_categoria(imc):
+    """
+    Determina la categoría de peso dado el Índice de Masa Corporal (IMC).
+    """
+    if imc < 18.5:
+        return "Bajo peso"
+    elif 18.5 <= imc < 25:
+        return "Peso normal"
+    elif 25 <= imc < 30:
+        return "Sobrepeso"
+    elif 30 <= imc < 35:
+        return "Obesidad grado I"
+    elif 35 <= imc < 40:
+        return "Obesidad grado II"
+    else:
+        return "Obesidad grado III"
+
+def main():
+    # Pedir al usuario el peso y la altura
+    peso = float(input("Ingrese su peso en kilogramos: "))
+    altura = float(input("Ingrese su altura en metros: "))
+
+    # Calcular el IMC
+    imc = calcular_imc(peso, altura)
+    print("Su Índice de Masa Corporal (IMC) es:", imc)
+
+    # Determinar la categoría de IMC
+    categoria = determinar_categoria(imc)
+    print("Usted tiene:", categoria)
+
+    # Listas de ejemplos
+    listas_peso = {
+        "Bajo peso": ["Persona1", "Persona2", "Persona3"],
+        "Peso normal": ["Persona4", "Persona5", "Persona6"],
+        "Sobrepeso": ["Persona7", "Persona8", "Persona9"],
+        "Obesidad grado I": ["Persona10", "Persona11", "Persona12"],
+        "Obesidad grado II": ["Persona13", "Persona14", "Persona15"],
+        "Obesidad grado III": ["Persona16", "Persona17", "Persona18"]
+    }
+
+    # Mostrar ejemplos de personas en cada categoría de peso
+    for categoria, personas in listas_peso.items():
+        print(f"\nPersonas con {categoria}:")
+        for persona in personas:
+            print("-", persona)
+
+if __name__ == "__main__":
+    main()
